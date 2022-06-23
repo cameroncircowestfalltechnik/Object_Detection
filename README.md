@@ -10,7 +10,7 @@ The official documentation is mostly what I used, however Gilbert Tanner's docum
 Windows visual studio 2022  
   
 ## Setup
-Start by generating a labelmap file
+Start by generating a labelmap file  
   -I added mine in the annotations folder as a sample  
   -This file type is to be modified in visual studio  
 
