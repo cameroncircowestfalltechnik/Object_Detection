@@ -7,7 +7,7 @@ The official documentation is mostly what I used, however Gilbert Tanner's docum
 ## Tools:  
 [beans data set (I removed the rusted ones)](https://www.tensorflow.org/datasets/catalog/beans)  
 [Labelimg (follow official documentation here to install)](https://tensorflow-object-detection-api-tutorial.readthedocs.io/en/latest/training.html#use-precompiled-binaries-easy)  
-Windows visual stuido 2022  
+Windows visual studio 2022  
   
 ## Setup
 Start by generating a labelmap file
