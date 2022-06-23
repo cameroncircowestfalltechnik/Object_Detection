@@ -1,9 +1,10 @@
 # Object_Detection
-Tools:  
+####Tools:  
 [beans data set (I removed the rusted ones)](https://www.tensorflow.org/datasets/catalog/beans)  
 [Labelimg (follow official documentation here to install)](https://tensorflow-object-detection-api-tutorial.readthedocs.io/en/latest/training.html#use-precompiled-binaries-easy)  
 Windows visual stuido 2022  
 
+##Introduction
 This document is kind of some loose documentation for my object detection project please at least read the whole paragraph attached to each entry to ensure it runs right.  
 Primary sources should be [The official Documentation](https://tensorflow-object-detection-api-tutorial.readthedocs.io/en/latest/training.html#create-tensorflow-records) and [Gilbert Tanner's object Arduino Detector](https://gilberttanner.com/blog/creating-your-own-objectdetector/)  
 The official documentation is mostly what i used, however Gilbert Tanner's documentation exxplains some of the steps better.  
@@ -12,6 +13,8 @@ I'll walk through some of the files of this repo below:
 Start by generating a labelmap file
   -I added mine in the annotations folder as a sample  
   -This file type is to be modified in visual studio  
+  
+###Setup
 After setting everything up and using labelimg on your data I use **generate_tfrecord.py**  
   -This program takes the the label map you made and the xml files and combines them into a .record file  
   -Important! (make sure “class_text_to_int” is up to date with current label names (~line 104)  
@@ -24,6 +27,7 @@ py generate_tfrecord.py -x [PATH_TO_IMAGES_FOLDER]/train -l [PATH_TO_ANNOTATIONS
 Next you can run **Read_TFRecord** to make sur that it wrote correctly, I executed this in visual studio and obviously you will have to route it to your .record file  
   -feel free to use the test.record under annotations to check it is populations correctly  
 
+###Training
 Next run **model_main_tf2.py** to train the model in my case I saved it in the "root folder" as specified by the official documentation  
   -Be sure that pipeline.config is up to date with the correct lebel qty and directories, again I uploaded mine as an example  
   -model_main_tf2.py is run by doing the following  
@@ -39,7 +43,7 @@ Finally you can export the model using **exporter_main_v2.py**, this step is alo
  ```
     py ./exporter_main_v2.py --input_type image_tensor --pipeline_config_path ./models/my_ssd_resnet50_v1_fpn/pipeline.config --trained_checkpoint_dir ./models/my_ssd_resnet50_v1_fpn/ --output_directory ./exported-models/my_model  
 ```
-    
+###Running the model    
 Now you can use your model, in my case this is done in **Run_Model_2.py**, a modified version of the sample program "Object Detection From TF2 Checkpoint" from the official documentation
 -This is run within visual studio  
 -The comments inside the program are the best source of documentation so read them for more info and step by step insight  
