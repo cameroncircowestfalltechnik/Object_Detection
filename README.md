@@ -1,8 +1,8 @@
 # Object_Detection
 # Introduction
-This document is kind of some loose documentation for my object detection project please at least read the whole paragraph attached to each entry to ensure it runs right.  
-Primary sources should be [The official Documentation](https://tensorflow-object-detection-api-tutorial.readthedocs.io/en/latest/training.html#create-tensorflow-records) and [Gilbert Tanner's object Arduino Detector](https://gilberttanner.com/blog/creating-your-own-objectdetector/)  
-The official documentation is mostly what i used, however Gilbert Tanner's documentation exxplains some of the steps better.  
+This page is kind of some loose documentation for my object detection project please at least read the whole paragraph attached to each entry to ensure it runs right.  
+Primary sources should be [The official Documentation](https://tensorflow-object-detection-api-tutorial.readthedocs.io/en/latest/training.html#create-tensorflow-records) and [Gilbert Tanner's object Arduino Detector](https://gilberttanner.com/blog/creating-your-own-objectdetector/). These sources are probably a lot better than this page.  
+The official documentation is mostly what I used, however Gilbert Tanner's documentation exxplains some of the steps better.  
 
 ## Tools:  
 [beans data set (I removed the rusted ones)](https://www.tensorflow.org/datasets/catalog/beans)  
