@@ -10,12 +10,12 @@ The official documentation is mostly what i used, however Gilbert Tanner's docum
 
 I'll walk through some of the files of this repo below:
 Start by generating a labelmap file
-  -I added mine in the annotations folder as a sample
-  -This file type is to be modified in visual studio
-After setting everything up and using labelimg on your data I use **generate_tfrecord.py**
-  -This program takes the the label map you made and the xml files and combines them into a .record file
-  -Important! (make sure “class_text_to_int” is up to date with current label names (~line 104)
-  -It is executed as so;
+  -I added mine in the annotations folder as a sample  
+  -This file type is to be modified in visual studio  
+After setting everything up and using labelimg on your data I use **generate_tfrecord.py**  
+  -This program takes the the label map you made and the xml files and combines them into a .record file  
+  -Important! (make sure “class_text_to_int” is up to date with current label names (~line 104)  
+  -It is executed as so:  
     cd [path to generate_tfrecord.py]
     py generate_tfrecord.py -x [PATH_TO_IMAGES_FOLDER]/train -l [PATH_TO_ANNOTATIONS_FOLDER]/label_map.pbtxt -o [PATH_TO_ANNOTATIONS_FOLDER]/train.record
     py generate_tfrecord.py -x [PATH_TO_IMAGES_FOLDER]/train -l [PATH_TO_ANNOTATIONS_FOLDER]/label_map.pbtxt -o [PATH_TO_ANNOTATIONS_FOLDER]/train.record
