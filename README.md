@@ -1,8 +1,8 @@
 # Object_Detection
 # Introduction
-This page is kind of some loose documentation for my object detection project please at least read the whole paragraph attached to each entry to ensure it runs right.  
+This page is kind of loose documentation for my object detection project. Please at least read the whole paragraph attached to each entry to ensure it runs right.  
 Primary sources should be [The official Documentation](https://tensorflow-object-detection-api-tutorial.readthedocs.io/en/latest/training.html#create-tensorflow-records) and [Gilbert Tanner's object Arduino Detector](https://gilberttanner.com/blog/creating-your-own-objectdetector/). These sources are probably a lot better than this page.  
-The official documentation is mostly what I used, however Gilbert Tanner's documentation exxplains some of the steps better.  
+The official documentation is mostly what I used, however Gilbert Tanner's documentation explains some of the steps better.  
 
 ## Tools:  
 [beans data set (I removed the rusted ones)](https://www.tensorflow.org/datasets/catalog/beans)  
@@ -23,20 +23,20 @@ cd [path to generate_tfrecord.py]
 py generate_tfrecord.py -x [PATH_TO_IMAGES_FOLDER]/train -l [PATH_TO_ANNOTATIONS_FOLDER]/label_map.pbtxt -o [PATH_TO_ANNOTATIONS_FOLDER]/train.record  
 py generate_tfrecord.py -x [PATH_TO_IMAGES_FOLDER]/train -l [PATH_TO_ANNOTATIONS_FOLDER]/label_map.pbtxt -o [PATH_TO_ANNOTATIONS_FOLDER]/train.record  
 ```
-Next you can run **Read_TFRecord** to make sur that it wrote correctly, I executed this in visual studio and obviously you will have to route it to your .record file  
+Next you can run **Read_TFRecord** to make sure that it wrote correctly, I executed this in visual studio and obviously you will have to route it to your .record file  
   -feel free to use the test.record under annotations to check it is populations correctly  
 
 ## Training
 Next run **model_main_tf2.py** to train the model in my case I saved it in the "root folder" as specified by the official documentation  
-  -Be sure that pipeline.config is up to date with the correct lebel qty and directories, again I uploaded mine as an example  
+  -Be sure that pipeline.config is up to date with the correct label qty and directories, again I uploaded mine as an example  
   -model_main_tf2.py is run by doing the following  
 ```
 cd [path to "root folder"]  
 py model_main_tf2.py --model_dir=models/my_ssd_resnet50_v1_fpn --pipeline_config_path=models/my_ssd_resnet50_v1_fpn/pipeline.config  
 ```
--Running this program should be extremely intensive (it ran my cpu to about 90 recent usage) on my work laptop the first batch of 100 operations took ~45 seconds each meanining it took about 68 minutes before posting anything to the console. In my case I remoted into my gaming setup at home with a gtx 1070 and ran the training. This lowered my operation time to around 1.6 seconds but is still a serious load on the pc, it immediately used all the vram  
+-Running this program should be extremely intensive (it ran my cpu to about 90 percent usage) on my work laptop the first batch of 100 operations took ~45 seconds each meaning it took about 68 minutes before posting anything to the console. In my case I remoted into my gaming setup at home with a gtx 1070 and ran the training. This lowered my operation time to around 1.6 seconds but is still a serious load on the pc, it immediately used all the vram  
 
-Finally you can export the model using **exporter_main_v2.py**, this step is alos pretty computationally taxing and should be run with the training closed, ideally soon after it posts a checkpoint. In my case i forgot this and ended up running my ram, ssd, cpu, and vram all at 100 percent usage. 
+Finally you can export the model using **exporter_main_v2.py**, this step is also pretty computationally taxing and should be run with the training closed, ideally soon after it posts a checkpoint. In my case I forgot this and ended up running my ram, ssd, cpu, and vram all at 100 percent usage. 
  -This should export your model into the exported-models directory  
  -use like so (while still cd'd into the "root folder"):  
  ```
